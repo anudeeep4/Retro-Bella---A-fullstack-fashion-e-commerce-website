@@ -88,6 +88,7 @@ The frontend is built with vanilla HTML/JS. You can serve it using any local web
 
 > **Note:** Ensure the backend is running on the port specified in your `.env` (default: 5000) for the frontend to communicate with the API.
 
-## 📜 License
+A PROJECT BY ANUDEEP R GAYAKWAD
 
-This project is licensed under the [ISC License](LICENSE).
+TRY IT OUT
+https://retro-bella.netlify.app/
