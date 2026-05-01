@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const product = item.Product || {};
                 const name = product.name || 'Unknown Product';
                 const price = product.price ? product.price.toFixed(2) : '0.00';
-                const imageUrl = product.imageURL || '/frontend/pics/placeholder.jpg'; // Assuming there's a placeholder image
+                const imageUrl = product.imageURL || 'pics/placeholder.jpg'; // Assuming there's a placeholder image
 
                 // Use a slightly modified version of the glass-product-card for wishlist items
                 itemElement.innerHTML = `
