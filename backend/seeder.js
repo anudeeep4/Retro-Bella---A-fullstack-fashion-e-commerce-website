@@ -35,13 +35,21 @@ const products = [
 
 const importData = async () => {
   try {
+    // Disable foreign key checks to allow dropping tables with dependencies
+    await sequelize.query('SET FOREIGN_KEY_CHECKS = 0');
+    
     await sequelize.sync({ force: true });
     console.log('Table synchronized!');
+
+    // Re-enable foreign key checks
+    await sequelize.query('SET FOREIGN_KEY_CHECKS = 1');
 
     await Product.bulkCreate(products);
     console.log('Data Imported!');
     process.exit();
   } catch (error) {
+    // Ensure checks are re-enabled even if it fails
+    await sequelize.query('SET FOREIGN_KEY_CHECKS = 1');
     console.error('Error with data import', error);
     process.exit(1);
   }
