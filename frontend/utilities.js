@@ -1,7 +1,11 @@
 // frontend/utilities.js
 
+const API_URL = 'http://localhost:5000'; // Update this to your Render URL after deployment
+window.API_URL = API_URL;
+
 /**
  * Displays a premium, glassmorphic toast notification.
+
  * @param {string} message - The text to display.
  * @param {string} type - 'success', 'error', 'info' (influences border/icon color).
  * @param {number} duration - How long the toast stays visible in ms.
