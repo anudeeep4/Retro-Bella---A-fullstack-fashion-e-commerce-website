@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchProductsByCategory = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/products/category/${category}`);
+            const response = await fetch(`${API_URL}/api/products/category/${category}`);
             if (!response.ok) throw new Error('Could not fetch products.');
 
             const products = await response.json();
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (cartBtn) {
             try {
-                const res = await fetch('http://localhost:5000/api/cart', {
+                const res = await fetch(`${API_URL}/api/cart`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                     body: JSON.stringify({ productId })
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (wishlistBtn) {
             try {
-                const res = await fetch('http://localhost:5000/api/wishlist', {
+                const res = await fetch(`${API_URL}/api/wishlist`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                     body: JSON.stringify({ productId })

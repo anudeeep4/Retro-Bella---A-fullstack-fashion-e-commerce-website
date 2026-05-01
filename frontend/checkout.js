@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Cart Items for Summary
     const fetchCartSummary = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/cart', {
+            const res = await fetch(`${API_URL}/api/cart`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
 

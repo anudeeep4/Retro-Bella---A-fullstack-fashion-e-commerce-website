@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchCartItems = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/cart', {
+            const res = await fetch(`${API_URL}/api/cart`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
 
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const cartItemId = e.target.dataset.cartItemId;
 
             try {
-                const res = await fetch(`http://localhost:5000/api/cart/${cartItemId}`, {
+                const res = await fetch(`${API_URL}/api/cart/${cartItemId}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${token}`

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchWishlistItems = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/wishlist', {
+            const res = await fetch(`${API_URL}/api/wishlist`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
 
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const wishlistItemId = e.target.dataset.wishlistItemId;
 
             try {
-                const res = await fetch(`http://localhost:5000/api/wishlist/${wishlistItemId}`, {
+                const res = await fetch(`${API_URL}/api/wishlist/${wishlistItemId}`, {
                     method: 'DELETE',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // This part sends the DELETE request to your server
             try {
-                const res = await fetch(`http://localhost:5000/api/wishlist/${wishlistItemId}`, {
+                const res = await fetch(`${API_URL}/api/wishlist/${wishlistItemId}`, {
                     method: 'DELETE',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
