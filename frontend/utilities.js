@@ -1,6 +1,6 @@
 // frontend/utilities.js
 
-const API_URL = 'http://localhost:5000'; // Update this to your Render URL after deployment
+const API_URL = 'https://retro-bella-a-fullstack-fashion-e.onrender.com';
 window.API_URL = API_URL;
 
 /**
