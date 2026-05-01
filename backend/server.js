@@ -20,6 +20,12 @@ app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/cart', require('./routes/cartRoutes'));
 app.use('/api/wishlist', require('./routes/wishlistRoutes'));
 
+const PORT = process.env.PORT || 5000;
+
+app.get('/', (req, res) => {
+  res.send('Fashion Store API is running...');
+});
+
 const startServer = async () => {
   try {
     // Define CORRECTED model associations with explicit foreign keys
@@ -33,18 +39,21 @@ const startServer = async () => {
     Product.hasMany(WishlistItem, { foreignKey: 'productId' });
     WishlistItem.belongsTo(Product, { foreignKey: 'productId' });
 
+    console.log('⏳ Connecting to database...');
     await sequelize.authenticate();
     console.log('✅ MySQL Connection has been established successfully.');
 
     await sequelize.sync();
     console.log("✅ All models were synchronized successfully.");
 
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, '0.0.0.0', () => console.log(`🚀 Server started on port ${PORT}`));
-
   } catch (error) {
     console.error('❌ Unable to connect to the database:', error);
+    // On Render, we might want to keep the process alive so we can see logs
+    // even if the DB connection fails initially.
   }
 };
 
-startServer();
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Server started on port ${PORT}`);
+  startServer();
+});
